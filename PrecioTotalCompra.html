@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>precio total compra</title>
+</head>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0%;
+        padding: 0%;
+
+    }
+    .calculator {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #28007D;
+        margin-bottom: 20px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28007D;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #1a0056;
+    }
+    
+    p {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+</style>
+<body>
+   <div class="calculator">
+    <h1>calculadora de precio total</h1>
+    <p>haz click en "calcular" para iniciar</p>
+    <button onclick="calcularPrecioTotal()">calcular precio total</button>
+    <p id="resultado">el precio total aparecera aqui</p>
+   </div>
+</body>
+<script>
+    function calcularPrecioTotal() {
+        const precio1 = parseFloat(prompt("Ingrese el precio del artículo 1:"));
+        const cantidad1 = parseInt(prompt("Ingrese la cantidad del artículo 1:"));
+        const precio2 = parseFloat(prompt("Ingrese el precio del artículo 2:"));
+        const cantidad2 = parseInt(prompt("Ingrese la cantidad del artículo 2:"));
+        const precio3 = parseFloat(prompt("Ingrese el precio del artículo 3:"));
+        const cantidad3 = parseInt(prompt("Ingrese la cantidad del artículo 3:"));
+    
+        const subtotal = (precio1 * cantidad1) + (precio2 * cantidad2) + (precio3 * cantidad3);
+        const impuestos = subtotal * 0.1; 
+        const precioTotal = subtotal + impuestos;
+    
+        const resultadoElem = document.getElementById("resultado");
+        resultadoElem.textContent = `El precio total es: ${precioTotal.toFixed(2)}`;
+    }
+</script>
+</html>
